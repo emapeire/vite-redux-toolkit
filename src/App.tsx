@@ -1,7 +1,11 @@
+import Counter from './components/Counter'
 import './App.css'
 
-function App() {
-  return <main></main>
+export default function App() {
+  return (
+    <div className='flex flex-col space-y-16'>
+      <h1 className='text-5xl font-bold'>Redux Complete Tutorial</h1>
+      <Counter />
+    </div>
+  )
 }
-
-export default App
