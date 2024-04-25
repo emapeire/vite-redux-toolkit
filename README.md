@@ -1,1 +1,1 @@
-### ✨ React + Redux Toolkit + Vite + TypeScript
+### ✨ React + Redux Toolkit + Vite + TypeScript + Tailwind CSS
