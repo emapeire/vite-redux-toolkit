@@ -1,8 +1,9 @@
 import { useAppDispatch } from './useStore'
 import {
   decrementByAmount,
-  incrementByAmount
-} from '../state/slices/counterSlice'
+  incrementByAmount,
+  reset
+} from '../store/slices/counterSlice'
 
 export const useCounterAction = () => {
   const dispatch = useAppDispatch()
@@ -15,5 +16,9 @@ export const useCounterAction = () => {
     dispatch(decrementByAmount(10))
   }
 
-  return { handleIncrement, handleDecrement }
+  const handleReset = () => {
+    dispatch(reset())
+  }
+
+  return { handleIncrement, handleDecrement, handleReset }
 }

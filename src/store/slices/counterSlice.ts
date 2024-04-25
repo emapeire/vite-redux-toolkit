@@ -8,9 +8,14 @@ interface CounterState {
   value: number
 }
 
-const initialState: CounterState = {
+const DEFAULT_VALUE = {
   value: 0
 }
+
+const initialState: CounterState = (() => {
+  const persistedState = localStorage.getItem('__redux__state__')
+  return persistedState ? JSON.parse(persistedState).counter : DEFAULT_VALUE
+})()
 
 export const incrementAsync = createAsyncThunk(
   'counter/incrementAsync',
@@ -37,6 +42,9 @@ export const counterSlice = createSlice({
     },
     decrement: (state) => {
       state.value--
+    },
+    reset: (state) => {
+      state.value = DEFAULT_VALUE.value
     },
     incrementByAmount: (
       state,
@@ -74,7 +82,14 @@ export const counterSlice = createSlice({
   }
 })
 
-export const { increment, decrement, incrementByAmount, decrementByAmount } =
-  counterSlice.actions // these are the counterSlice actions
+// these are the counterSlice actions
+export const {
+  increment,
+  decrement,
+  reset,
+  incrementByAmount,
+  decrementByAmount
+} = counterSlice.actions
 
-export default counterSlice.reducer // this is the counterReducer function
+// this is the counterReducer function
+export default counterSlice.reducer
