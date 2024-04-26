@@ -1,5 +1,5 @@
 {
-  "name": "redux-toolkit-vite",
+  "name": "vite-redux-toolkit",
   "private": true,
   "version": "0.0.0",
   "type": "module",
